@@ -1,0 +1,3 @@
+# MNIST Reader
+This repository contains solutions to the [MNIST data set problem sheet](https://emerging-technologies.github.io/problems/digits.html) completed as part of my course work for the module [Emerging Technologies](https://emerging-technologies.github.io/).
+The module is taught to undergraduate students at [GMIT](http://www.gmit.ie/) in the Department of Computer Science and Applied Physics for the course [B.S.c. (Hons) in Software Developement.](https://www.gmit.ie/software-development/bachelor-science-honours-software-development) The lecturer is  [Dr. Ian McLoughlin](https://ianmcloughlin.github.io/).
