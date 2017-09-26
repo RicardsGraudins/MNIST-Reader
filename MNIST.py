@@ -2,9 +2,13 @@
 #Importing gzip https://docs.python.org/2/library/gzip.html
 import gzip
 
-f = gzip.open('t10k-images-idx3-ubyte.gz', 'rb')
+f = gzip.open('train-images-idx3-ubyte.gz', 'rb')
 
 #File_content stores file data
-file_content = f.read()
+#file_content = f.read()
 #Printing file data to console
-print(file_content)
+#print(file_content)
+
+#Reading first byte
+firstbyte = f.read(1)
+print(firstbyte)
