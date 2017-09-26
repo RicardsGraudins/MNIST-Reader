@@ -83,3 +83,12 @@ trainImages = readImagesFromFile('train-images-idx3-ubyte.gz')
 print("\nTest set image file:")
 print("------------------------")
 testImages = readImagesFromFile('t10k-images-idx3-ubyte.gz')
+
+#Output 3rd image in training set to console
+def outputConsole():
+    for row in trainImages[2]:
+        for col in row:
+            print('.' if col<= 127 else '#', end='')
+        print()
+        
+outputConsole()
