@@ -10,5 +10,15 @@ f = gzip.open('train-images-idx3-ubyte.gz', 'rb')
 #print(file_content)
 
 #Reading first byte
-firstbyte = f.read(1)
-print(firstbyte)
+#firstbyte = f.read(1)
+#print(firstbyte)
+
+#Reading first four bytes
+magicNum = f.read(4)
+
+#b'\x00\x00\x08\x03'
+#print(magicNum)
+
+#Binary = 2051
+magicNum = int.from_bytes(magicNum, 'big')
+print("The magic number is:", magicNum)
