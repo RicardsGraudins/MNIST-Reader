@@ -46,3 +46,40 @@ trainLabels = readLabelsFromFile('train-labels-idx1-ubyte.gz')
 print("\nTest set label file:")
 print("------------------------")
 testLabels = readLabelsFromFile('t10k-labels-idx1-ubyte.gz')
+
+#Reading images, passing in file as parameter
+def readImagesFromFile(filename):
+    with gzip.open(filename, 'rb') as f:
+        magicNum = f.read(4)
+        magicNum = int.from_bytes(magicNum, 'big')
+        print("The magic number is: ", magicNum)
+
+        numImgs = f.read(4)
+        numImgs = int.from_bytes(numImgs, 'big')
+        print("The number of images is: ", numImgs)
+
+        numRows = f.read(4)
+        numRows = int.from_bytes(numRows, 'big')
+        print("The number of rows is: ", numRows)
+
+        numCols = f.read(4)
+        numCols = int.from_bytes(numCols, 'big')
+        print("The number of columns is: ", numCols)
+
+        images = []
+        for i in range(numImgs):
+            rows = []
+            for r in range(numRows):
+                cols = []
+                for c in range(numCols):
+                    cols.append(int.from_bytes(f.read(1), 'big'))
+                rows.append(cols)
+            images.append(rows)
+    return images
+
+print("\nTraining set image file:")
+print("------------------------")
+trainImages = readImagesFromFile('train-images-idx3-ubyte.gz')
+print("\nTest set image file:")
+print("------------------------")
+testImages = readImagesFromFile('t10k-images-idx3-ubyte.gz')
