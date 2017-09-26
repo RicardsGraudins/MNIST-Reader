@@ -1,6 +1,10 @@
 #Adapted from https://stackoverflow.com/questions/12902540/read-from-a-gzip-file-in-python
 #Importing gzip https://docs.python.org/2/library/gzip.html
 import gzip
+#Importing http://pillow.readthedocs.io/en/3.4.x/reference/Image.html
+import PIL.Image as pil
+#Importing numpy http://www.numpy.org/
+import numpy as np
 
 #f = gzip.open('train-images-idx3-ubyte.gz', 'rb')
 
@@ -91,4 +95,14 @@ def outputConsole():
             print('.' if col<= 127 else '#', end='')
         print()
         
+
+#Saving the five-thousandth training image
+def saveImage():
+    img = pil.fromarray(np.array(trainImages[4999]))
+    img = img.convert('RGB')
+    img.show()
+    img.save('train-4999-2.png')
+    print("Image saved.")
+    
 outputConsole()
+saveImage()
