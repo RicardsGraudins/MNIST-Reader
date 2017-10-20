@@ -92,3 +92,22 @@ def saveImage():
     
 outputConsole()
 saveImage()
+
+#Saving all images from testImages/trainImages
+def saveImages(image, name, index, label):
+    path = "Images/%s-%05d-%d.png"
+    img = pil.fromarray(np.array(image))
+    img = img.convert('RGB')
+    img.save(path % (name, index, label))
+
+choice = input("Would you like to save all the test images? (yes/no)\n")
+if (choice == "yes"):
+    #Saving 10000 test images
+    for i in range(len(testImages)):
+        saveImages(testImages[i],'test', (i+1), testLabels[i])
+    
+choice2 = input("Would you like to save all the train images? (yes/no)\n")
+if (choice2 == "yes"):
+    #Saving 60000 training images
+    for i in range(len(trainImages)):
+        saveImages(trainImages[i],'train', (i+1), trainLabels[i])
