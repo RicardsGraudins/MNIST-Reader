@@ -106,7 +106,7 @@ if (choice == "yes"):
     for i in range(len(testImages)):
         saveImages(testImages[i],'test', (i+1), testLabels[i])
     
-choice2 = input("Would you like to save all the train images? (yes/no)\n")
+choice2 = input("Would you like to save all the training images? (yes/no)\n")
 if (choice2 == "yes"):
     #Saving 60000 training images
     for i in range(len(trainImages)):
